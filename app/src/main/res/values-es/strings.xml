@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> laboratorios de Android </string>
+    <string name="hello_message"> Hola Mundo </string>
+    <string name="ButtonText"> Soy un botón </string>
+
+    <string name="TextViewLogin"> iniciar sesión </string>
+    <string name="EditTextHint"> nombre de inicio de sesión </string>
+    <string name="TextViewPassword"> contraseña </string>
+    <string name="SwitchText"> que hace esto? </string>
+</resources>

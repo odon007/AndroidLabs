@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> AndroidLabs</string>
+    <string name="hello_message"> Hello World </string>
+    <string name="ButtonText"> I\’m a button </string>
+
+    <string name="TextViewLogin"> login </string>
+    <string name="EditTextHint"> login name </string>
+    <string name="TextViewPassword"> password </string>
+    <string name="SwitchText"> What does this do? </string>
+</resources>
