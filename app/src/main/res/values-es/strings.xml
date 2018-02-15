@@ -2,10 +2,15 @@
 <resources>
     <string name="app_name"> laboratorios de Android </string>
     <string name="hello_message"> Hola Mundo </string>
-    <string name="ButtonText"> Soy un botón </string>
+    <string name="ButtonText"> soy un botón </string>
 
     <string name="TextViewLogin"> iniciar sesión </string>
     <string name="EditTextHint"> nombre de inicio de sesión </string>
     <string name="TextViewPassword"> contraseña </string>
     <string name="SwitchText"> que hace esto? </string>
+
+    <string name="dialog_message"> ¿Quieres terminar la actividad? </string>
+    <string name="dialog_title"> AndroidLabs3</string>
+    <string name="ok"> de acuerdo </string>
+    <string name="cancel"> cancelar </string>
 </resources>
