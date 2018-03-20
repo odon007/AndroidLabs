@@ -11,6 +11,7 @@ import android.content.Intent;
 public class MainActivity extends Activity {
     protected static final String ACTIVITY_NAME="MainActivity";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
