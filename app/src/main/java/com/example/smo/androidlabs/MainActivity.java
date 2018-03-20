@@ -1,5 +1,6 @@
 package com.example.smo.androidlabs;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     protected static final String ACTIVITY_NAME="MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +23,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                //when button is clicked launch ListItemsActivity
-                launchListItemsActivity();
+               launchListItemsActivity();
             }
         });
-    }
+
+        //launch ChatWindow when button is clicked
+        Button chatButton = findViewById(R.id.chatButton);
+        chatButton.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchChatWindow();
+            }
+        }));
+    } //end onCreate
+
     protected void launchListItemsActivity(){
         Intent intent = new Intent(MainActivity.this, ListItemsActivity.class);
+        startActivityForResult(intent, 50);
+    }
+
+    protected void launchChatWindow(){
+        Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+        Intent intent = new Intent(MainActivity.this, ChatWindow.class);
         startActivityForResult(intent, 50);
     }
 

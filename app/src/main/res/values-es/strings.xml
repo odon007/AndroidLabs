@@ -13,4 +13,7 @@
     <string name="dialog_title"> AndroidLabs3</string>
     <string name="ok"> de acuerdo </string>
     <string name="cancel"> cancelar </string>
+
+    <string name="sendButton2">Enviar</string>
+    <string name="chatButton">Comenzar chat</string>
 </resources>
