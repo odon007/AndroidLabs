@@ -16,4 +16,6 @@
 
     <string name="sendButton2">Enviar</string>
     <string name="chatButton">Comenzar chat</string>
+
+    <string name="weatherButton">Comenzar clima</string>
 </resources>

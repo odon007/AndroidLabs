@@ -88,7 +88,6 @@ public class ChatWindow extends Activity {
         //4 functions that ChatAdapter must implement
         public int getCount(){  //returns number of rows in ListView
             //number of strings in array list (chatMsgArray)
-
             return chatMsgArray.size();
         }
 
@@ -108,7 +107,7 @@ public class ChatWindow extends Activity {
             }
 
             TextView message = result.findViewById(R.id.message_text);
-             message.setText(getItem(position)); //get the string at position
+            message.setText(getItem(position)); //get the string at position
 
             return result;
         } //end getView
