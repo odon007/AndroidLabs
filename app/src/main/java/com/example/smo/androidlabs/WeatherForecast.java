@@ -39,17 +39,11 @@ public class WeatherForecast extends Activity {
 
         ForecastQuery forecastQuery = new ForecastQuery();
         forecastQuery.execute(); //run thread
-
     } //end onCreate
 
     protected class ForecastQuery extends AsyncTask<String, Integer, String> {
         String currentTemp, min, max, tagName, iconName, speed;
         Bitmap picture;
-
-        //@Override
-        //protected void onPreExecute(){
-          //  super.onPreExecute();
-       // }
 
         //for long-lasting computations
         @Override
@@ -161,30 +155,16 @@ public class WeatherForecast extends Activity {
 
                 } else {//if(fileExistence(fileName)){ //if the image doesn't exist download it
                     Log.i("Notice:","file does not exist, needs to be downloaded.......");
-//???????????????????????????????????????????????
+
                     picture = new HTTPUtils().getImage("http://openweathermap.org/img/w/" + fileName);
 
                     FileInputStream fileInputStream = null;
                     fileInputStream = openFileInput(fileName );
+
                     picture = BitmapFactory.decodeStream(fileInputStream);
                     fileInputStream.close();
-
-                    //picture = new HTTPUtils().getImage("http://openweathermap.org/img/w/" + fileName);
-                    //store the image***************
-
-                    // URL imageURL = new URL("http://openweathermap.org/img/w/" + fileName);
-                    //String iconURL = "http://openweathermap.org/img/w/" + fileName;
-                    //picture = getImage(new URL(iconURL));
-                    //Bitmap bitmapImage = getImage(imageURL);
-                    //FileOutputStream fileOutputStream = openFileOutput(iconName + ".png", Context.MODE_PRIVATE);
-
-
                     Thread.sleep(1000);
                     publishProgress(100);
-
-                    // } catch (FileNotFoundException fnf) {
-                    //    Log.e("fnf", "cannot find the file");
-                    // }
 
                 } //end inner if
             } catch (XmlPullParserException xppe){
@@ -196,7 +176,6 @@ public class WeatherForecast extends Activity {
             } catch (IOException ioe){
                 ioe.printStackTrace();
             }
-
             return "all done";
         } //end doInBackground
 

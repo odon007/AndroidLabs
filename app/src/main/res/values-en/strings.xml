@@ -18,4 +18,6 @@
     <string name="chatButton">Start Chat</string>
 
     <string name="weatherButton">Start Weather</string>
+
+    <string name="deleteButton">Delete this message</string>
 </resources>
