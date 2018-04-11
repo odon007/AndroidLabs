@@ -1,7 +1,6 @@
 package com.example.smo.androidlabs;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
@@ -22,11 +21,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import static com.example.smo.androidlabs.ChatDatabaseHelper.KEY_MESSAGE;
-import static com.example.smo.androidlabs.ChatDatabaseHelper.KEY_id;
-import static com.example.smo.androidlabs.ChatDatabaseHelper.TABLE_NAME;
 
 public class ChatWindow extends Activity {
     protected static final String ACTIVITY_NAME = "ChatWindow";
@@ -44,7 +40,7 @@ public class ChatWindow extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_chat_window);
-        setContentView(R.layout.activity_chat_window2);
+        setContentView(R.layout.activity_chat_window);
 
         final ListView listView = findViewById(R.id.listView);
         final ChatAdapter messageAdapter = new ChatAdapter(this);
@@ -79,7 +75,6 @@ public class ChatWindow extends Activity {
         sendButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 EditText editText = findViewById(R.id.editText);
                 chatMsgArray.add(editText.getText().toString());
                 messageAdapter.notifyDataSetChanged();
@@ -90,6 +85,8 @@ public class ChatWindow extends Activity {
                 editText.setText("");
             }
         });
+        //pass msg and ID of item to fragment
+        frameLayout = findViewById(R.id.frameLayout);
 
         //Lab 7 check if frameLayout exists
         isTablet = (frameLayout !=null);
@@ -107,18 +104,12 @@ public class ChatWindow extends Activity {
                 infoToPass.putLong("id", id);
                 infoToPass.putBoolean("isTablet", isTablet);
 
-               //pass msg and ID of item to fragment
-                //frameLayout = findViewById(R.id.frameLayout);
-
                 if(isTablet){ //if on tablet
-                    //MessageFragment msgFragment = new MessageFragment();// = new Fragment(String ...contents);
                     FragmentManager fM = getFragmentManager();
-                    FragmentTransaction fT = fM.beginTransaction();//.add(R.id.frameLayout, msgFragment).addToBackStack(null).commit();
-
+                    FragmentTransaction fT = fM.beginTransaction();
                     MessageFragment msgFragment = new MessageFragment();
                     msgFragment.setArguments(infoToPass);
 
-                    //frameLayout = findViewById(R.id.frameLayout);
                     fT.addToBackStack(null); //undo transaction on back button
                     fT.replace(R.id.frameLayout, msgFragment);
                     fT.commit();
@@ -130,8 +121,6 @@ public class ChatWindow extends Activity {
                 } //end isTablet
             }//end onClick
         });
-
-
     } //end onCreate
 
     class ChatAdapter extends ArrayAdapter<String>{ //inner class
@@ -175,7 +164,6 @@ public class ChatWindow extends Activity {
         public long getItemId(int position){
             cursor.moveToPosition(position);
             return cursor.getLong(cursor.getColumnIndex(ChatDatabaseHelper.KEY_id));
-
         }
 
     } //end ChatAdapter

@@ -22,6 +22,5 @@ public class MessageDetails extends AppCompatActivity {
          fT.addToBackStack(null); //will undo FT when back button is clicked
          fT.replace(R.id.detailsFrameLayout, msgF);
          fT.commit();
-
     } //end onCreate
 }

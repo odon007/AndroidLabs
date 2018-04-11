@@ -21,7 +21,6 @@ public class MessageFragment extends Fragment {
     Boolean isTablet;
     Long id;
     private SQLiteDatabase db;
-    protected ChatWindow chatWindow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,8 +28,7 @@ public class MessageFragment extends Fragment {
        getInfo = getArguments();
     }//end onCreate
 
-    //this only runs on the phone
-
+    //this only runs on the tablet
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle savedInstanceState){
         View page = layoutInflater.inflate(R.layout.activity_message_fragment, null);
@@ -38,10 +36,9 @@ public class MessageFragment extends Fragment {
         db = chatDatabaseHelper.getWritableDatabase();
 
         msgText = page.findViewById(R.id.msgText);
-        //msgText.setText("The message is " + getInfo.getString("dataMessage"));
-        msgText.setText("The message is " + getInfo.getString(chatDatabaseHelper.KEY_MESSAGE));
+        msgText.setText("The message is " + getInfo.getString("data message"));
         idText = page.findViewById(R.id.idText);
-        idText.setText("The ID is " + ChatDatabaseHelper.KEY_id);
+        idText.setText("The ID is " +  getInfo.getLong("id"));
 
         isTablet = getInfo.getBoolean("isTablet");
         id = getInfo.getLong("id");
