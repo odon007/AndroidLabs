@@ -22,11 +22,13 @@
         android:inputType="textEmailAddress" />
 
     <TextView
+        android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TextViewPassword" />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"/>

@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends Activity {
     protected static final String ACTIVITY_NAME="LoginActivity";
@@ -18,21 +20,25 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
+        final EditText emailText = findViewById(R.id.emailText);
+        final EditText password = findViewById(R.id.password);
+        Button loginButton = findViewById(R.id.loginButton);
+
         //save the email the user enters
         prefs = getSharedPreferences("UserInput", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = prefs.edit(); //edit the file
-
-        int numLaunches = prefs.getInt("NumRuns", 0);
-        edit.putInt("NumRuns", numLaunches + 1); //ran one more time
-         edit.commit();
-        //edit.apply();
+        String email = prefs.getString("emailText", "email@domain.com");
+        emailText.setText(email);
+        //SharedPreferences.Editor edit = prefs.edit(); //edit the file
 
         /*reference to the login button*/
-        Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("emailText", emailText.getText().toString());
+                editor.putString("password", password.getText().toString());
+                editor.commit();
             //when button is clicked launch MainActivity
                 launchMainActivity();
             }
