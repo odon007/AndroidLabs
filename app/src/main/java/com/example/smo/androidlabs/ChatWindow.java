@@ -39,7 +39,6 @@ public class ChatWindow extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_chat_window);
         setContentView(R.layout.activity_chat_window);
 
         final ListView listView = findViewById(R.id.listView);

@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button, chatButton, weatherButton; //declare buttons
+        Button button, chatButton, weatherButton, toolbarButton; //declare buttons
 
         //when button is clicked launch ListItemsActivity
         button = findViewById(R.id.button);
@@ -42,6 +42,15 @@ public class MainActivity extends Activity {
                 launchWeatherForecast();
             }
         });
+
+        //launch toolbar page
+        toolbarButton = findViewById(R.id.toolbarButton);
+        toolbarButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                launchTestToolbar();
+            }
+        });
     }
     protected void launchListItemsActivity(){
         Intent intent = new Intent(MainActivity.this, ListItemsActivity.class);
@@ -55,6 +64,11 @@ public class MainActivity extends Activity {
 
     protected void launchWeatherForecast(){
         Intent intent = new Intent(MainActivity.this, WeatherForecast.class);
+        startActivityForResult(intent, 50);
+    }
+
+    protected void launchTestToolbar(){
+        Intent intent = new Intent(MainActivity.this, TestToolbar.class);
         startActivityForResult(intent, 50);
     }
 

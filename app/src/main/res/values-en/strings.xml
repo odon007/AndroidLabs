@@ -20,4 +20,8 @@
     <string name="weatherButton">Start Weather</string>
 
     <string name="deleteButton">Delete this message</string>
+
+    <string name="toolbarButton">Test Toolbar</string>
+    <string name="go_back">Do you want to go back?</string>
+    <string name="dialogText">New Message</string>
 </resources>
